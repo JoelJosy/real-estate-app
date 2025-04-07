@@ -51,7 +51,7 @@ export default function AboutPage() {
               property search process and provide transparent, accurate information to help you make informed decisions.
             </p>
             <p className="text-gray-600">
-              We're committed to innovation, using cutting-edge technology to provide price predictions, market
+              We&apos;re committed to innovation, using cutting-edge technology to provide price predictions, market
               analytics, and a seamless user experience for both buyers and sellers.
             </p>
           </div>

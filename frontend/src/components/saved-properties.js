@@ -1,5 +1,7 @@
 import { mockProperties, mockUsers } from "@/lib/mock-data";
 import PropertyCard from "@/components/property-card";
+import Link from 'next/link';
+
 
 export default function SavedProperties({ userId }) {
   const user = mockUsers.find((u) => u.id === userId);
@@ -21,9 +23,9 @@ export default function SavedProperties({ userId }) {
         <p className="mb-4 text-muted-foreground">
           You haven&apos;t saved any properties yet. Browse our listings and save properties you&apos;re interested in.
         </p>
-        <a href="/properties" className="text-primary hover:underline">
+        <Link href="/properties" className="text-primary hover:underline">
           Browse Properties
-        </a>
+        </Link>
       </div>
     );
   }

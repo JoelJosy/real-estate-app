@@ -83,7 +83,7 @@ export default function SellerDashboard() {
             <p className="text-muted-foreground">No properties match your search criteria.</p>
           ) : (
             <p className="text-muted-foreground">
-              You haven't listed any properties yet. Add your first property to get started.
+              You haven&apos;t listed any properties yet. Add your first property to get started.
             </p>
           )}
           <Button onClick={() => setIsDialogOpen(true)} className="mt-4">
