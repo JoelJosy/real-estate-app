@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = "http://localhost:5001"
+const API_URL = "https://real-estate-app-vg32.onrender.com"
 
 // Create axios instance with base URL
 const api = axios.create({
