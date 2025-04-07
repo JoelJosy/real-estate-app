@@ -53,6 +53,8 @@ app.use(errorHandler); // Global error handler
     try {
         await pool.query("SELECT NOW()");
         console.log("Connected to the database successfully!");
+        await pool.query("SET search_path TO public");
+        console.log("Schema set to public");
         await createUserTable();
         await createPropertyTable();
         await createFavoritesTable();
