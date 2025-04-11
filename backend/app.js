@@ -11,9 +11,20 @@ dotenv.config();
 // // Middleware Function
 // const authRoute = require("./middleware/authRoute");
 
+const allowedOrigins = [
+    "http://localhost:3000",
+    "https://real-estate-app-joeljosys-projects.vercel.app/", 
+  ];
+
 // CORS configuration
 const corsOptions = {
-    origin: "http://localhost:3000",  // Frontend origin
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true);
+        } else {
+          callback(new Error("Not allowed by CORS"));
+        }
+      },
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
@@ -26,11 +37,11 @@ const corsOptions = {
 const { createUserTable } = require("./models/User");
 const { createPropertyTable } = require("./models/Property");
 const { createFavoritesTable } = require("./models/Favorites");
-const { authenticateToken } = require("./middleware/authMiddleware");
+// const { authenticateToken } = require("./middleware/authMiddleware");
 
 // App Settings
 app.use(express.json());
-app.use(cors({origin: "*",}));
+// app.use(cors({origin: "*",}));
 app.use(cookieParser());
 
 // Router Settings
