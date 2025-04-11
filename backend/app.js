@@ -13,7 +13,7 @@ dotenv.config();
 
 // CORS configuration
 const corsOptions = {
-    origin: "https://real-estate-app-joeljosys-projects.vercel.app",  // Frontend origin
+    origin: "http://localhost:3000",  // Frontend origin
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
