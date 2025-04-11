@@ -13,22 +13,25 @@ dotenv.config();
 
 const allowedOrigins = [
     "http://localhost:3000",
-    "https://real-estate-app-joeljosys-projects.vercel.app", 
+    "https://real-estate-app-joeljosys-projects.vercel.app",
   ];
-
-// CORS configuration
-const corsOptions = {
+  
+  const corsOptions = {
     origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-          callback(null, true);
-        } else {
-          callback(new Error("Not allowed by CORS"));
-        }
-      },
+      // Allow requests with no origin (like mobile apps or curl/postman)
+      if (!origin) return callback(null, true);
+  
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        console.error("Blocked by CORS: ", origin);
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true
-  }
+    credentials: true,
+  };
   
   // Add CORS middleware before routes
   app.use(cors(corsOptions))
@@ -41,7 +44,6 @@ const { createFavoritesTable } = require("./models/Favorites");
 
 // App Settings
 app.use(express.json());
-// app.use(cors({origin: "*",}));
 app.use(cookieParser());
 
 // Router Settings
