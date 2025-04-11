@@ -13,7 +13,7 @@ dotenv.config();
 
 const allowedOrigins = [
     "http://localhost:3000",
-    "https://real-estate-app-joeljosys-projects.vercel.app/", 
+    "https://real-estate-app-joeljosys-projects.vercel.app", 
   ];
 
 // CORS configuration
