@@ -10,14 +10,6 @@ const api = axios.create({
   },
 })
 
-// Add interceptor to include auth token in requests
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token")
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`
-  }
-  return config
-})
 
 // Add response interceptor for error handling
 api.interceptors.response.use(
@@ -28,29 +20,6 @@ api.interceptors.response.use(
   },
 )
 
-// Auth API calls
-export const authAPI = {
-  login: async (email, password) => {
-    try {
-      const response = await api.post("/auth/login", { email, password })
-      return response
-    } catch (error) {
-      console.error("Login error:", error)
-      // For demo purposes, return mock data
-      return { token: "mock-token", user_type: "seller", id: "seller1" }
-    }
-  },
-
-  register: async (userData) => {
-    try {
-      const response = await api.post("/auth/register", userData)
-      return response
-    } catch (error) {
-      console.error("Registration error:", error)
-      
-    }
-  },
-}
 
 // Property API calls
 export const propertyAPI = {
