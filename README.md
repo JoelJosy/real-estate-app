@@ -4,12 +4,6 @@ A full-stack web application that allows users to explore and analyze real estat
 
 ---
 
-## 🌐 Live Demo
-
-real-estate-app-joeljosys-projects.vercel.app
-
----
-
 ## 🧩 Tech Stack
 
 ### Frontend
